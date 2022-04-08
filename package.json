@@ -1,0 +1,28 @@
+{
+  "name": "08-team-profile-gen",
+  "version": "1.0.0",
+  "description": "generate team profile cards from inquirer prompts and tested using Jest",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BKWes/team-profile-generator.git"
+  },
+  "author": "Weston B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BKWes/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/BKWes/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
