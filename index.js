@@ -33,16 +33,6 @@ function engineerPrompt() {
             }
         },
       ])
-      .then((engineerAnswers) => {
-        console.log(engineerAnswers);
-        if ({ employeeType: ['Engineer']} ) {
-            engineerPrompt()
-        } else if ({ employeeType: ['Intern'] }) {
-            internPrompt()
-        } else {
-            // finish prompt and generate HTML with given
-        }
-    });
 };
 
 function internPrompt() {
@@ -83,18 +73,9 @@ function internPrompt() {
             }
         },
       ])
-      .then((internAnswers) => {
-        console.log(internAnswers);
-        if ({ employeeType: ['Engineer']} ) {
-            engineerPrompt()
-        } else if ({ employeeType: ['Intern'] }) {
-            internPrompt()
-        } else {
-            // finish prompt and generate HTML with given
-        }
-    });
-}
+};
 
+function managerPrompt() {
 inquirer
   .prompt([
     /* Pass your questions in here */
@@ -137,6 +118,9 @@ inquirer
         }
     },
   ])
+};
+
+managerPrompt()
   .then((answers) => {
     // Use user feedback for... whatever!!
     console.log(answers);
