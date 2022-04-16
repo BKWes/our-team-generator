@@ -17,11 +17,11 @@ test('engineer has a github value', () => {
 test('get github value', () => {
     const engineer = new Engineer('Adam', 'email', 'adamcoder');
 
-    expect(getGithub).toBe('adamcoder');
+    expect(getGithub()).toBe('adamcoder');
 });
 
 test('getRole overrides to Engineer', () => {
     const engineer = new Engineer('Adam');
 
-    expect(getRole).toBe('Engineer');
+    expect(getRole()).toBe('Engineer');
 })
