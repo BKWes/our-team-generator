@@ -17,11 +17,11 @@ test('intern has school property', () => {
 test('get school value', () => {
     const intern = new Intern('Ally', 'email', 'CSU');
 
-    expect(getSchool()).toBe('CSU');
+    expect(intern.getSchool()).toBe('CSU');
 });
 
 test('getRole overrides to Intern', () => {
     const intern = new Intern('Ally');
 
-    expect(getRole()).toBe('Intern');
+    expect(intern.getRole()).toBe('Intern');
 });
