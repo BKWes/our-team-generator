@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const generatePage = require('./src/html-template');
 
 function managerPrompt() {
 inquirer
@@ -47,7 +48,7 @@ inquirer
       console.log(managerData);
     if (!managerData.addEmployee) {
           console.log('prompt end');
-          return
+          return managerData;
     }
     if (managerData.employeeType == 'Engineer' ) {
         console.log('adding engineer');
@@ -165,4 +166,5 @@ function internPrompt() {
     })
 };
 
-managerPrompt();
+managerPrompt()
+//   .then(generatePage(mangaerData));
