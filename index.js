@@ -1,80 +1,5 @@
 const inquirer = require('inquirer');
 
-function engineerPrompt() {
-    inquirer
-      .prompt([
-        //   engineer name, id, github
-        {
-            type: 'input',
-            name: 'engineerName',
-            message: "What is this engineer's name?"
-        },
-        {
-            type: 'input',
-            name: 'engineerGithub',
-            message: "Enter this engineer's github name"
-        },
-        {
-            type: 'confirm',
-            name: 'addEmployee',
-            message: 'Would you like to add another employee?'
-        },
-        {
-            type: 'checkbox',
-            name: 'employeeType',
-            message: 'Add an Engineer or Intern?',
-            choices: ['Engineer', 'Intern'],
-            when: ({ addEmployee }) => {
-                if (addEmployee) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },
-      ])
-};
-
-function internPrompt() {
-    inquirer
-      .prompt([
-        //   intern name, ID, email, school
-        {
-            type: 'input',
-            name: 'internName',
-            message: "What is this intern's name?"
-        },
-        {
-            type: 'input',
-            name: 'internEmail',
-            message: "Enter this intern's email address"
-        },
-        {
-            type: 'input',
-            name: 'internSchool',
-            message: "Enter this intern's school"
-        },
-        {
-            type: 'confirm',
-            name: 'addEmployee',
-            message: 'Would you like to add another employee?'
-        },
-        {
-            type: 'checkbox',
-            name: 'employeeType',
-            message: 'Add an Engineer or Intern?',
-            choices: ['Engineer', 'Intern'],
-            when: ({ addEmployee }) => {
-                if (addEmployee) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },
-      ])
-};
-
 function managerPrompt() {
 inquirer
   .prompt([
@@ -118,18 +43,18 @@ inquirer
         }
     },
   ])
-};
-
-managerPrompt()
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-    console.log(answers);
-    if ({ employeeType: ['Engineer']} ) {
+  .then((managerData) => {
+      console.log(managerData);
+    if (!managerData.addEmployee) {
+          console.log('prompt end');
+          return
+    }
+    if (managerData.employeeType == 'Engineer' ) {
+        console.log('adding engineer');
         engineerPrompt()
-    } else if ({ employeeType: ['Intern'] }) {
+    } else if (managerData.employeeType == 'Intern') {
+        console.log('adding intern');
         internPrompt()
-    } else {
-        // finish prompt and generate HTML with given
     }
   })
   .catch((error) => {
@@ -139,3 +64,105 @@ managerPrompt()
       // Something else went wrong
     }
   });
+}
+
+function engineerPrompt() {
+    inquirer
+      .prompt([
+        //   engineer name, id, github
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: "What is this engineer's name?"
+        },
+        {
+            type: 'input',
+            name: 'engineerGithub',
+            message: "Enter this engineer's github name"
+        },
+        {
+            type: 'confirm',
+            name: 'addEmployee',
+            message: "Would you like to add another employee to your team?"
+        },
+        {
+            type: 'checkbox',
+            name: 'employeeType',
+            message: 'Add an Engineer or Intern?',
+            choices: ['Engineer', 'Intern'],
+            when: ({ addEmployee }) => {
+                if (addEmployee) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+      ]).then((engineerData) => {
+        console.log(engineerData);
+        if (!engineerData.addEmployee){
+            console.log('end prompt');
+            return;
+        }
+
+        if (engineerData.employeeType == 'Engineer') {
+            engineerPrompt()
+        } else if (engineerData.employeeType == 'Intern') {
+            internPrompt()
+        }
+      }) 
+};
+
+function internPrompt() {
+    inquirer
+      .prompt([
+        //   intern name, ID, email, school
+        {
+            type: 'input',
+            name: 'internName',
+            message: "What is this intern's name?"
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: "Enter this intern's email address"
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: "Enter this intern's school"
+        },
+        {
+            type: 'confirm',
+            name: 'addEmployee',
+            message: "Would you like to add another employee to your team?"
+        },
+        {
+            type: 'checkbox',
+            name: 'employeeType',
+            message: 'Add an Engineer or Intern?',
+            choices: ['Engineer', 'Intern'],
+            when: ({ addEmployee }) => {
+                if (addEmployee) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+      ]).then((internData) => {
+        console.log(internData);
+        if (!internData.addEmployee) {
+            console.log('end of prompt');
+            return;
+        }
+
+        if (internData.employeeType =- 'Engineer') {
+            engineerPrompt()
+        } else if (internData.employeeType =- 'Intern') {
+            internPrompt()
+        }
+    })
+};
+
+managerPrompt();
