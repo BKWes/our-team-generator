@@ -51,21 +51,21 @@ const userPrompt = employeeData => {
             type: 'input',
             name: 'github',
             message: "What is this engineer's github?",
-            when: (answers) => answers.job === 'Engineer'
+            when: (answers) => answers.title === 'Engineer'
         },
         // if intern ask school 
         {
             type: 'input',
             name: 'school',
             message: "Where does this intern attend school?",
-            when: (answers) => answers.job === 'Intern'
+            when: (answers) => answers.title === 'Intern'
         },
         // if manager ask office number
         {
             type: 'input',
             name: 'office',
             message: "What is this manager's office number?",
-            when: (answers) => answers.job === 'Manager'
+            when: (answers) => answers.title === 'Manager'
         },
         // ask for another employee?
         {
@@ -90,5 +90,6 @@ const userPrompt = employeeData => {
 userPrompt()
     .then(employeeData => {
         const pageData = [];
-        
+        console.log(employeeData);
+
     })
