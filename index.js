@@ -91,5 +91,34 @@ userPrompt()
     .then(employeeData => {
         const pageData = [];
         console.log(employeeData);
-
+        // loop through by job title and make objects to push to page data
+        for (let i=0; i<employeeData.length;i++) {
+            if (employeeData[i].title === 'Manager') {
+                const managerObject = new Manager(employeeData[i].name, employeeData[i].email, employeeData[i].title);
+                managerObject.getOther(employeeData[i].office);
+                pageData.push(managerObject);
+            }
+            if (employeeData[i].title === 'Engineer') {
+                const engineerObject = new Engineer(employeeData[i].name, employeeData[i].email, employeeData[i].title);
+                engineerObject.getOther(employeeData[i].github);
+                pageData.push(engineerObject);
+            }
+            if (employeeData[i].title === 'Intern') {
+                const internObject = new Intern(employeeData[i].name, employeeData[i].email, employeeData[i].title);
+                internObject.getOther(employeeData[i].school);
+                pageData.push(internObject);
+            }
+        }
+        return pageData;
     })
+    .then(pageData => {
+        const htmlPage = generatePage(pageData);
+        fs.writeFile('./dist/index.html', htmlPage, err => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log('Your webpage has been created. Look for index.html in /dist folder')
+        })
+        
+    });
