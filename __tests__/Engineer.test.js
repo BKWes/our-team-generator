@@ -8,17 +8,6 @@ test('engineer has employee properties', () => {
     expect(engineer.email).toBe('adam@email.com');
 });
 
-test('engineer has a github value', () => {
-    const engineer = new Engineer('Adam', 'email', 'adamcoder')
-
-    expect(engineer.github).toBe('adamcoder');
-});
-
-test('get github value', () => {
-    const engineer = new Engineer('Adam', 'email', 'adamcoder');
-
-    expect(engineer.getGithub()).toBe('adamcoder');
-});
 
 test('getRole overrides to Engineer', () => {
     const engineer = new Engineer('Adam');

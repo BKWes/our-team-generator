@@ -88,3 +88,7 @@ const userPrompt = employeeData => {
 
 
 userPrompt()
+    .then(employeeData => {
+        const pageData = [];
+        
+    })

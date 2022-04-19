@@ -8,18 +8,6 @@ test('intern has employee properties', () => {
     expect(intern.email).toBe('ally@email.com');
 });
 
-test('intern has school property', () => {
-    const intern = new Intern('Ally', 'ally@email.com', 'CSU');
-
-    expect(intern.school).toBe('CSU');
-});
-
-test('get school value', () => {
-    const intern = new Intern('Ally', 'email', 'CSU');
-
-    expect(intern.getSchool()).toBe('CSU');
-});
-
 test('getRole overrides to Intern', () => {
     const intern = new Intern('Ally');
 
