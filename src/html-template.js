@@ -3,7 +3,6 @@ const generateCard = (name, id, title, email, other) => {
   <div class="card"
     <div class="card-header">
       <h3>${name}</h3>
-      <h4>${title}</h4>
     </div>
     <div class="card-body">
       <p>${id}</p>
