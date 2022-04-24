@@ -1,15 +1,16 @@
 const Manager = require('../lib/Manager');
 
-test('manager has employee properties', () => {
-    const manager = new Manager('Shae', 'shae@email.com');
+test('manager has name, email and job title values', () => {
+    const manager = new Manager ('Al', 'gob@email.com', 1 , 'manager')
 
-    expect(manager.name).toBe('Shae', 'shae@email.com');
-    expect(manager.id).toEqual(1);
-    expect(manager.email).toBe('shae@email.com');
+    expect(manager.name).toBe('Al');
+    expect(manager.email).toBe('gob@email.com');
+    expect(manager.title).toBe('manager')
+    expect(manager.id).toBe(1);
 });
 
-test('getRole overrides to Manager', () => {
-    const manager = new Manager('Shae');
+test('getOther to get office number', () => {
+    const manager = new Manager('Adam');
 
-    expect(manager.getRole()).toBe('Manager');
+    expect(manager.getOther('1234')).toBe('Office Number: 1234');
 });
