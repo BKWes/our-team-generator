@@ -1,5 +1,8 @@
 # Team Profile Generator
 
+## Description:
+This is a team generator that I made for a coding boot camp. The purpose of this generator is to input employee data into the command line, through Inquirer, and return an html page with this data.
+
 ## User Story
 AS A manager  
 I WANT to generate a webpage that displays my team's basic info  
@@ -23,3 +26,12 @@ WHEN I select the intern option
 THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu  
 WHEN I decide to finish building my team  
 THEN I exit the application, and the HTML is generated  
+
+## Walkthrough Video
+[Here is a link to the screen recording on Google Drive](https://drive.google.com/file/d/1_sPf22rXzXAFnBBDCblAYiWLf9sdx5ly/view)
+
+## Github Link
+[README Generator](https://github.com/BKWes/our-team-generator)
+
+## Created By:
+[Weston Barnes](https://github.com/BKWes)
