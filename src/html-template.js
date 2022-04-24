@@ -1,10 +1,10 @@
-const generateCard = (name, id, title, email, other) => {
+const generateCard = (name, id, email, other) => {
   return `
-  <div class="card"
-    <div class="card-header">
+  <div class="card h-100 m-2">
+    <div class="card-header bg-primary">
       <h3>${name}</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body bg-light">
       <p>${id}</p>
       <p>Email: ${email}</p>
       <p>${other}</p>
@@ -17,7 +17,7 @@ const cardLoop = data => {
   let dataString = ``
 
   for (let i=0; i<data.length; i++) {
-    const employeeData = generateCard(data[i].name, data[i].id, data[i].title, data[i].email, data[i].other)
+    const employeeData = generateCard(data[i].name, data[i].id, data[i].email, data[i].other)
     dataString = dataString + employeeData;
   };
   return dataString;
@@ -41,7 +41,7 @@ const generatePage = templateData => {
       <h1 class="text-center text-white bg-dark p-5">Our Team</h1>
     </header>
     <main class="container">
-        <div class="row text-center justify-content-center">
+        <div class="row justify-content-center">
         ${cardLoop(templateData)}
         </div>
     </main>
